@@ -41,12 +41,12 @@ fi
 # Выполняем бэкап с помощью rsync с использованием предыдущего бэкапа, если он есть.
 if [ -n "$latest_backup" ]; then
     rsync -cahvPAX -e "$ssh_connection" --delete --link-dest="$latest_backup" "$source_dir/" "$backup_dir/" --log-file="$backup_base_dir/$backup_date.log" 2>> "$backup_base_dir/${backup_date}_er.log"
-    # Принудительное изменение времени модицикации, т.к. иначе оно не соответствует действительности.
+    # Принудительное изменение времени модификации, т.к. иначе оно не соответствует действительности.
     touch "$backup_dir"
 # Иначе создаем новый.
 else
     rsync -chavPAX -e "$ssh_connection" --delete "$source_dir/" "$backup_dir/" --log-file="$backup_base_dir/$backup_date.log" 2>> "$backup_base_dir/${backup_date}_er.log"
-    # Принудительное изменение времени модицикации, т.к. иначе оно не соответствует действительности.
+    # Принудительное изменение времени модификации, т.к. иначе оно не соответствует действительности.
     touch "$backup_dir"
 fi
 
