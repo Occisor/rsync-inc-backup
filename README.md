@@ -22,4 +22,4 @@ backup_base_dir="/home/name2/rsync-backup/dir"
 keep_arhives=8
 ```
 
-Далее запускаете в ручную или добавляете в crontab.
+Далее запускаете вручную или добавляете в crontab.
